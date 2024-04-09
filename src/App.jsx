@@ -1,7 +1,12 @@
+import './App.css'
+import CreateUser from './components/CreateUser'
+import ListUser from './components/ListUser'
+
 function App() {
   return (
     <>
-      <h1>Hello world!</h1>
+      <CreateUser />
+      <ListUser />
     </>
   )
 }
