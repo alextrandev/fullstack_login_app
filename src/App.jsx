@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom';
 import { useState } from "react";
+import axios from 'axios';
 import ListUser from './components/ListUser';
 import CreateUser from './components/CreateUser';
 import './App.css';
@@ -9,7 +10,10 @@ function App() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(inputs);
+    // console.log(inputs);
+    axios
+      .post('http://localhost:8005/api/user/save', inputs)
+      .catch(function (error) { console.log(error.toJSON()) });
   }
   const handleChange = e => setInputs({...inputs, [e.target.name]: e.target.value});
 
