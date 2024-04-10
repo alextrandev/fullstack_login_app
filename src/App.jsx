@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom';
 import { useState } from "react";
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ListUser from './components/ListUser';
 import CreateUser from './components/CreateUser';
@@ -7,13 +8,15 @@ import './App.css';
 
 function App() {
   const [inputs, setInputs] = useState({});
+  // const navigate = useNavigate()
 
   const handleSubmit = e => {
     e.preventDefault();
     // console.log(inputs);
     axios
-      .post('http://localhost:8005/api/user/save', inputs)
+      .post('http://localhost:8005/api/', inputs)
       .catch(function (error) { console.log(error.toJSON()) });
+    // navigate('/')
   }
   const handleChange = e => setInputs({...inputs, [e.target.name]: e.target.value});
 
